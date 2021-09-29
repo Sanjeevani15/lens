@@ -1,0 +1,31 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int main()
+{
+    int n , arr[100];
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+        
+    }
+    for(int i=0;i<n;i++)
+    {
+        cout<<arr[i]<<" ";
+        
+    }
+    int mid;
+    if(n%2==0)
+    {
+    mid=ceil(n/2);
+    }
+    else{
+        mid=n/2;
+    }
+    cout<<"Middle elemrnt is : "<<arr[mid]; 
+
+    
+    return 0;
+}
