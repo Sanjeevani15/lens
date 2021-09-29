@@ -1,0 +1,70 @@
+#include<iostream>
+using namespace std;
+class Node {
+   public:
+      int data;
+      Node *next;
+
+      Node(int val)
+      {
+        data=val;
+        next=NULL;
+      }
+};
+
+
+
+
+void insert(Node* &head, int val)
+{
+    Node* n=new Node(val);
+
+    if(head==NULL)
+    {
+        head=n;
+        return;
+    }
+    Node* temp=head;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+
+    temp->next=n;
+
+}
+
+
+int mid(Node* &head) {
+    Node* fast=head;
+    Node* slow=head;
+ while(fast!=NULL && fast->next!=NULL)
+ {
+     slow=slow->next;
+     fast=fast->next->next;
+ }
+    return slow->data;
+}
+
+
+void dis(Node* head)
+{
+    Node* temp=head;
+    while(temp!=NULL)
+  { cout<<temp->data<<" ";
+temp=temp->next;
+}
+}
+int main() {
+   Node* head = NULL;
+   insert(head, 15);
+   insert(head, 16);
+   insert(head, 10);
+   insert(head, 7);
+   insert(head, 58);
+   insert(head, 9);
+   insert(head, 17);
+   cout<<"Linked list is\n";
+   dis(head);
+   cout << "\nMiddle element is " << mid(head);
+}
