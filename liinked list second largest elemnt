@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+class Node {
+   public:
+      int data;
+      Node *next;
+
+      Node(int val)
+      {
+        data=val;
+        next=NULL;
+      }
+};
+
+
+
+
+void insert(Node* &head, int val)
+{
+    Node* n=new Node(val);
+
+    if(head==NULL)
+    {
+        head=n;
+        return;
+    }
+    Node* temp=head;
+    while(temp->next!=NULL)
+    {
+        temp=temp->next;
+    }
+
+    temp->next=n;
+
+}
+
+// int secondLargestElement(Node *start) {
+    int secL(Node head) {
+   int first_max = INT_MIN, second_max = INT_MIN;
+   Node *p = &head;
+   while(p != NULL){
+      if (p->data > first_max) {
+         second_max = first_max;
+         first_max = p->data;
+      }
+      else if (p->data > second_max)
+         second_max = p->data;
+         p = p->next;
+   }
+   return second_max;
+}
+
+int main() {
+   Node* head = NULL;
+   insert(head, 15);
+   insert(head, 16);
+   insert(head, 10);
+   insert(head, 9);
+   insert(head, 7);
+   insert(head, 17);
+   cout << "Second largest element is: " << secL(*head);
+}
